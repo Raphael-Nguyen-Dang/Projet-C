@@ -3,9 +3,14 @@
 
 
 int AffichageAllumette(int nombre){
-    //printf("Voici le nombre d'allumette restant : \n");
+    
     for (int x=0; x<nombre; x++){
         printf(" |");
     }
+
+    printf("      Il reste %d allumettes \n",nombre);
 }
 
+void main(){
+    AffichageAllumette(6);
+}
