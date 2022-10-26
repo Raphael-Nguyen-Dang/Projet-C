@@ -27,6 +27,12 @@ int QuiCommence(){
     return NbAleatoire;
 }
 
+int NbAleatoire(){
+    srand(time(NULL));
+    int NbAleatoire=rand()%3+1;
+    return NbAleatoire;
+}
+
 void Welcome(){
     printf("\n\n                     **********************\n");
     printf("                     * Jeu des allumettes *\n");

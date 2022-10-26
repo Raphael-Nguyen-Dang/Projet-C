@@ -14,108 +14,24 @@ void main(){
     int Nb_User2;
     int Nb_Ordi;
     int compteur;
+    int lvlDifficulte;
+
     printf("\nIl existe 2 modes de jeu : \n [1] - Mode Contre l'ordinateur \n [2] - Mode Multijoueur \nTapez le numero du mode auquel vous voulez jouer : \n");
     scanf("%d",&ModeDeJeu);
 
     // Choix du mode jeu Contre l'ordinateur
     if(ModeDeJeu == 1){
-        // Mode de jeu difficile
-        do {
-            // Le joueur commence 
-            if(WhoStart == 1) {
-                compteur = 1;
-                while(NbAllumette >0){
-                    
-                    affichageTour(compteur);
-                    printf("\nC'est a votre tour de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n");
-                    scanf("%d",& Nb_User1 );
-
-                    while (Nb_User1 < 1 || Nb_User1 > 3){
-                        printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
-                        scanf("%d",&Nb_User1);
-                    }
-                    NbAllumette = (NbAllumette - Nb_User1);
-                    AffichageAllumette(NbAllumette);
-                    // Si le joueur pioche la dernière allumette : il perds
-                    if(NbAllumette <= 0){
-                        printf("Dommage, l'ordinateur remporte la partie\n");
-                    }
-                    else{
+        printf("\nIl existe 2 niveau de difficulte : \n [1] - Mode Facile \n [2] - Mode Hardcore \nTapez le numero du mode auquel vous voulez jouer : \n");
+        scanf("%d",&lvlDifficulte);
+        // Lancement d'une partie en mode Hardcore
+        if(lvlDifficulte == 2){         
+            do {
+                // Le joueur commence 
+                if(WhoStart == 1) {
+                    compteur = 1;
+                    while(NbAllumette >0){
                         
-                        if((NbAllumette ) % 4 == 0){
-                        Nb_Ordi = 3;
-                        NbAllumette = NbAllumette - Nb_Ordi;
-                        ChoixOrdi(Nb_Ordi);
-                        AffichageAllumette(NbAllumette);
-                        }
-                        else if ((NbAllumette + 1) % 4 == 0){
-                            Nb_Ordi = 2;
-                            NbAllumette = NbAllumette - Nb_Ordi;
-                            ChoixOrdi(Nb_Ordi);
-                            AffichageAllumette(NbAllumette);
-                            
-                        }
-                        else if ((NbAllumette + 2) % 4 == 0){
-                            Nb_Ordi = 1;
-                            NbAllumette = NbAllumette - Nb_Ordi;
-                            ChoixOrdi(Nb_Ordi);
-                            AffichageAllumette(NbAllumette);
-                        }
-                        else{
-                            srand(time(NULL));
-                            int Nb_Ordi=rand()%3+1;
-                            ChoixOrdi(Nb_Ordi);
-                            NbAllumette = NbAllumette - Nb_Ordi;
-                            AffichageAllumette(NbAllumette);
-                            
-                        }
-                        if (NbAllumette <= 0){
-                            printf("Felicitation, Vous remportez cette partie\n");
-                        }
-                    }
-                    compteur = compteur + 1;
-                }
-                
-            }
-            else if ( WhoStart == 2) {
-                
-                compteur = 1;
-                while(NbAllumette >0){
-                    // L'ordinateur joue
-                    affichageTour(compteur);
-                        if((NbAllumette ) % 4 == 0){
-                        Nb_Ordi = 3;
-                        NbAllumette = NbAllumette - Nb_Ordi;
-                        ChoixOrdi(Nb_Ordi);
-                        AffichageAllumette(NbAllumette);
-                        }
-                        else if ((NbAllumette + 1) % 4 == 0){
-                            Nb_Ordi = 2;
-                            NbAllumette = NbAllumette - Nb_Ordi;
-                            ChoixOrdi(Nb_Ordi);
-                            AffichageAllumette(NbAllumette);
-                            
-                        }
-                        else if ((NbAllumette + 2) % 4 == 0){
-                            Nb_Ordi = 1;
-                            NbAllumette = NbAllumette - Nb_Ordi;
-                            ChoixOrdi(Nb_Ordi);
-                            AffichageAllumette(NbAllumette);
-                        }
-                        else{
-                            srand(time(NULL));
-                            int Nb_Ordi=rand()%3+1;
-                            ChoixOrdi(Nb_Ordi);
-                            NbAllumette = NbAllumette - Nb_Ordi;
-                            AffichageAllumette(NbAllumette);
-                            
-                        }
-                        if (NbAllumette <= 0){
-                            printf("Felicitation, Vous remportez cette partie\n");
-                        }
-        
-                    else{
-                        
+                        affichageTour(compteur);
                         printf("\nC'est a votre tour de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n");
                         scanf("%d",& Nb_User1 );
 
@@ -126,16 +42,186 @@ void main(){
                         NbAllumette = (NbAllumette - Nb_User1);
                         AffichageAllumette(NbAllumette);
                         // Si le joueur pioche la dernière allumette : il perds
-                        if(NbAllumette == 0){
+                        if(NbAllumette <= 0){
                             printf("Dommage, l'ordinateur remporte la partie\n");
-                        }    
+                        }
+                        else{
                             
+                            if((NbAllumette ) % 4 == 0){
+                            Nb_Ordi = 3;
+                            NbAllumette = NbAllumette - Nb_Ordi;
+                            ChoixOrdi(Nb_Ordi);
+                            AffichageAllumette(NbAllumette);
+                            }
+                            else if ((NbAllumette + 1) % 4 == 0){
+                                Nb_Ordi = 2;
+                                NbAllumette = NbAllumette - Nb_Ordi;
+                                ChoixOrdi(Nb_Ordi);
+                                AffichageAllumette(NbAllumette);
+                                
+                            }
+                            else if ((NbAllumette + 2) % 4 == 0){
+                                Nb_Ordi = 1;
+                                NbAllumette = NbAllumette - Nb_Ordi;
+                                ChoixOrdi(Nb_Ordi);
+                                AffichageAllumette(NbAllumette);
+                            }
+                            else{
+                                srand(time(NULL));
+                                int Nb_Ordi=rand()%3+1;
+                                ChoixOrdi(Nb_Ordi);
+                                NbAllumette = NbAllumette - Nb_Ordi;
+                                AffichageAllumette(NbAllumette);
+                                
+                            }
+                            if (NbAllumette <= 0){
+                                printf("Felicitation, Vous remportez cette partie\n");
+                            }
+                        }
+                        compteur = compteur + 1;
                     }
-                    compteur = compteur + 1;
+                    
                 }
+                else if ( WhoStart == 2) {
+                    
+                    compteur = 1;
+                    while(NbAllumette >0){
+                        // L'ordinateur joue
+                        affichageTour(compteur);
+                            if((NbAllumette ) % 4 == 0){
+                            Nb_Ordi = 3;
+                            NbAllumette = NbAllumette - Nb_Ordi;
+                            ChoixOrdi(Nb_Ordi);
+                            AffichageAllumette(NbAllumette);
+                            }
+                            else if ((NbAllumette + 1) % 4 == 0){
+                                Nb_Ordi = 2;
+                                NbAllumette = NbAllumette - Nb_Ordi;
+                                ChoixOrdi(Nb_Ordi);
+                                AffichageAllumette(NbAllumette);
+                                
+                            }
+                            else if ((NbAllumette + 2) % 4 == 0){
+                                Nb_Ordi = 1;
+                                NbAllumette = NbAllumette - Nb_Ordi;
+                                ChoixOrdi(Nb_Ordi);
+                                AffichageAllumette(NbAllumette);
+                            }
+                            else{
+                                srand(time(NULL));
+                                int Nb_Ordi=rand()%3+1;
+                                ChoixOrdi(Nb_Ordi);
+                                NbAllumette = NbAllumette - Nb_Ordi;
+                                AffichageAllumette(NbAllumette);
+                                
+                            }
+                            if (NbAllumette <= 0){
+                                printf("Felicitation, Vous remportez cette partie\n");
+                            }
+            
+                        else{
+                            
+                            printf("\nC'est a votre tour de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n");
+                            scanf("%d",& Nb_User1 );
 
-            }
-        } while( NbAllumette > 0);
+                            while (Nb_User1 < 1 || Nb_User1 > 3){
+                                printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                scanf("%d",&Nb_User1);
+                            }
+                            NbAllumette = (NbAllumette - Nb_User1);
+                            AffichageAllumette(NbAllumette);
+                            // Si le joueur pioche la dernière allumette : il perds
+                            if(NbAllumette <= 0){
+                                printf("Dommage, l'ordinateur remporte la partie\n");
+                            }    
+                                
+                        }
+                        compteur = compteur + 1;
+                    }
 
+                }
+            } while( NbAllumette > 0);
+        }
+        // Lancement d'une partie en mode facile
+        if(lvlDifficulte == 1){
+            do {
+                // Le joueur commence 
+                if(WhoStart == 1) {
+                    compteur = 1;
+                    while(NbAllumette >0){
+                        
+                        affichageTour(compteur);
+                        printf("\nC'est a votre tour de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3 : ");
+                        scanf("%d",& Nb_User1 );
+
+                        while (Nb_User1 < 1 || Nb_User1 > 3){
+                            printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\nTapez a nouveau votre choix: ");
+                            scanf("%d",&Nb_User1);
+                        }
+                        NbAllumette = (NbAllumette - Nb_User1);
+                        AffichageAllumette(NbAllumette);
+                        // Si le joueur pioche la dernière allumette : il perds
+                        if(NbAllumette <= 0){
+                            printf("Dommage, l'ordinateur remporte la partie\n");
+                        }
+                        else{
+                            
+                            if((NbAllumette )  > 0){
+                                srand(time(NULL));
+                                int Nb_Ordi=rand()%3+1;
+                                ChoixOrdi(Nb_Ordi);
+                                NbAllumette = NbAllumette - Nb_Ordi;
+                                AffichageAllumette(NbAllumette);
+                            }
+                            if (NbAllumette <= 0){
+                                printf("Felicitation, Vous remportez cette partie\n");
+                            }
+                        }
+                        compteur = compteur + 1;
+                    }
+                    
+                }
+                else if ( WhoStart == 2) {
+                    
+                    compteur = 1;
+                    while(NbAllumette >0){
+                        // L'ordinateur joue
+                        affichageTour(compteur);
+                            if((NbAllumette) >0){
+                                srand(time(NULL));
+                                int Nb_Ordi=rand()%3+1;
+                                ChoixOrdi(Nb_Ordi);
+                                NbAllumette = NbAllumette - Nb_Ordi;
+                                AffichageAllumette(NbAllumette);
+                            }
+                            
+                            if (NbAllumette <= 0){
+                                printf("Felicitation, Vous remportez cette partie\n");
+                            }
+            
+                        else{
+                            
+                            printf("\nC'est a votre tour de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3 : ");
+                            scanf("%d",& Nb_User1 );
+
+                            while (Nb_User1 < 1 || Nb_User1 > 3){
+                                printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\nTapez a nouveau votre choix: ");
+                                scanf("%d",&Nb_User1);
+                            }
+                            NbAllumette = (NbAllumette - Nb_User1);
+                            AffichageAllumette(NbAllumette);
+                            // Si le joueur pioche la dernière allumette : il perds
+                            if(NbAllumette <= 0){
+                                printf("Dommage, l'ordinateur remporte la partie\n");
+                            }    
+                                
+                        }
+                        compteur = compteur + 1;
+                    }
+
+                }
+            } while( NbAllumette > 0);
+
+        }
     }
 }
