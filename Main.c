@@ -7,7 +7,7 @@
 void main(){
 
     Welcome();
-    int WhoStart = 1;//QuiCommence();
+    int WhoStart = QuiCommence();
     int NbAllumette = 30;
     int ModeDeJeu;
     int Nb_User1;
@@ -19,6 +19,7 @@ void main(){
 
     // Choix du mode jeu Contre l'ordinateur
     if(ModeDeJeu == 1){
+        // Mode de jeu difficile
         do {
             // Le joueur commence 
             if(WhoStart == 1) {
@@ -36,33 +37,39 @@ void main(){
                     NbAllumette = (NbAllumette - Nb_User1);
                     AffichageAllumette(NbAllumette);
                     // Si le joueur pioche la dernière allumette : il perds
-                    if (NbAllumette == 0){
+                    if(NbAllumette <= 0){
                         printf("Dommage, l'ordinateur remporte la partie\n");
                     }
-
                     else{
-                        if((NbAllumette - 1) % 4 == 0){
-                        Nb_Ordi = 1;
+                        
+                        if((NbAllumette ) % 4 == 0){
+                        Nb_Ordi = 3;
                         NbAllumette = NbAllumette - Nb_Ordi;
                         ChoixOrdi(Nb_Ordi);
                         AffichageAllumette(NbAllumette);
                         }
-                        else if ((NbAllumette - 2) % 4 == 0){
+                        else if ((NbAllumette + 1) % 4 == 0){
                             Nb_Ordi = 2;
                             NbAllumette = NbAllumette - Nb_Ordi;
                             ChoixOrdi(Nb_Ordi);
                             AffichageAllumette(NbAllumette);
+                            
                         }
-                        else if ((NbAllumette - 3) % 4 == 0){
-                            Nb_Ordi = 3;
+                        else if ((NbAllumette + 2) % 4 == 0){
+                            Nb_Ordi = 1;
                             NbAllumette = NbAllumette - Nb_Ordi;
                             ChoixOrdi(Nb_Ordi);
                             AffichageAllumette(NbAllumette);
                         }
                         else{
-                            NbAllumette = NbAllumette - (1+rand()%3);
+                            srand(time(NULL));
+                            int Nb_Ordi=rand()%3+1;
+                            ChoixOrdi(Nb_Ordi);
+                            NbAllumette = NbAllumette - Nb_Ordi;
+                            AffichageAllumette(NbAllumette);
+                            
                         }
-                        if (NbAllumette == 0){
+                        if (NbAllumette <= 0){
                             printf("Felicitation, Vous remportez cette partie\n");
                         }
                     }
@@ -71,24 +78,62 @@ void main(){
                 
             }
             else if ( WhoStart == 2) {
-                if((NbAllumette - 1) % 4 == 0) {
-                    Nb_Ordi = 1;
-                    NbAllumette = NbAllumette - Nb_Ordi;
-                    AffichageAllumette(NbAllumette);
+                
+                compteur = 1;
+                while(NbAllumette >0){
+                    // L'ordinateur joue
+                    affichageTour(compteur);
+                        if((NbAllumette ) % 4 == 0){
+                        Nb_Ordi = 3;
+                        NbAllumette = NbAllumette - Nb_Ordi;
+                        ChoixOrdi(Nb_Ordi);
+                        AffichageAllumette(NbAllumette);
+                        }
+                        else if ((NbAllumette + 1) % 4 == 0){
+                            Nb_Ordi = 2;
+                            NbAllumette = NbAllumette - Nb_Ordi;
+                            ChoixOrdi(Nb_Ordi);
+                            AffichageAllumette(NbAllumette);
+                            
+                        }
+                        else if ((NbAllumette + 2) % 4 == 0){
+                            Nb_Ordi = 1;
+                            NbAllumette = NbAllumette - Nb_Ordi;
+                            ChoixOrdi(Nb_Ordi);
+                            AffichageAllumette(NbAllumette);
+                        }
+                        else{
+                            srand(time(NULL));
+                            int Nb_Ordi=rand()%3+1;
+                            ChoixOrdi(Nb_Ordi);
+                            NbAllumette = NbAllumette - Nb_Ordi;
+                            AffichageAllumette(NbAllumette);
+                            
+                        }
+                        if (NbAllumette <= 0){
+                            printf("Felicitation, Vous remportez cette partie\n");
+                        }
+        
+                    else{
+                        
+                        printf("\nC'est a votre tour de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n");
+                        scanf("%d",& Nb_User1 );
+
+                        while (Nb_User1 < 1 || Nb_User1 > 3){
+                            printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                            scanf("%d",&Nb_User1);
+                        }
+                        NbAllumette = (NbAllumette - Nb_User1);
+                        AffichageAllumette(NbAllumette);
+                        // Si le joueur pioche la dernière allumette : il perds
+                        if(NbAllumette == 0){
+                            printf("Dommage, l'ordinateur remporte la partie\n");
+                        }    
+                            
+                    }
+                    compteur = compteur + 1;
                 }
-                else if ((NbAllumette - 2) % 4 == 0) {
-                    Nb_Ordi = 2;
-                    NbAllumette = NbAllumette - Nb_Ordi;
-                    AffichageAllumette(NbAllumette);
-                }
-                else if ((NbAllumette - 3) % 4 == 0){
-                    Nb_Ordi = 3;
-                    NbAllumette = NbAllumette - Nb_Ordi;
-                    AffichageAllumette(NbAllumette);
-                }
-                else{
-                                NbAllumette = NbAllumette - (1+rand()%3);
-                }
+
             }
         } while( NbAllumette > 0);
 
