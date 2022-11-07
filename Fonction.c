@@ -14,6 +14,10 @@ void ChoixOrdi(int Nb_ordi){
     printf("\n C'est a l'ordinateur de jouer, celui ci choisi d'enlever %d allumettes\n\n",Nb_ordi);
 }
 
+void AvotreTour(char pseudo){
+    printf("\nC'est a %c de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n",pseudo);
+}
+
 void affichageTour(int cpt){
     printf("\n ---------------------------------------------------");
     printf("\n *****************");

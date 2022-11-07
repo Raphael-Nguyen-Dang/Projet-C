@@ -15,6 +15,10 @@ void main(){
     int Nb_Ordi;
     int compteur;
     int lvlDifficulte;
+    char pseudoj1 [40] = {0};
+    char pseudoj2 [40] = {0};
+
+
 
     printf("\nIl existe 2 modes de jeu : \n [1] - Mode Contre l'ordinateur \n [2] - Mode Multijoueur \nTapez le numero du mode auquel vous voulez jouer : \n");
     scanf("%d",&ModeDeJeu);
@@ -223,5 +227,89 @@ void main(){
             } while( NbAllumette > 0);
 
         }
+        // Si mode multi
+    } else if (ModeDeJeu == 2){
+         printf("\nEntrez le nom du joueur numero 1?\n");
+         scanf("%s", &pseudoj1);
+         printf("\nEntrez le nom du joueur numero 2?\n");
+         scanf("%s", &pseudoj2);
+        
+        
+        // Le joueur commence 
+                if(WhoStart == 1) {
+                    compteur = 1;
+                    while(NbAllumette >0){
+                        
+                        affichageTour(compteur);
+                        printf("\nC'est a %s de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n",pseudoj1);
+                        scanf("%d",& Nb_User1 );
+
+                        while (Nb_User1 < 1 || Nb_User1 > 3){
+                            printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                            scanf("%d",&Nb_User1);
+                        }
+                        NbAllumette = (NbAllumette - Nb_User1);
+                        AffichageAllumette(NbAllumette);
+                        // Si le joueur pioche la dernière allumette : il perds
+                        if(NbAllumette <= 0){
+                            printf("Felicitation, %s remporte la partie\n",pseudoj2);
+                        }
+                        else{
+                            // au tour du j2 de jouer 
+                            printf("\nC'est a %s de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n",pseudoj2);
+                            scanf("%d",& Nb_User1 );
+                            while (Nb_User1 < 1 || Nb_User1 > 3){
+                                printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                scanf("%d",&Nb_User1);
+                            }
+                            NbAllumette = (NbAllumette - Nb_User1);
+                            AffichageAllumette(NbAllumette);
+                            // Si le joueur pioche la dernisère allumette : il perds
+                            if (NbAllumette <= 0){
+                                printf("Felicitation, %s remporte la partie\n",pseudoj1);
+                            }
+                        }
+                        compteur = compteur + 1;
+                    }
+                    
+                }
+                else if ( WhoStart == 2) {
+                    
+                    compteur = 1;
+                    while(NbAllumette >0){
+                        
+                        affichageTour(compteur);
+                        printf("\nC'est a %s de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n",pseudoj2);
+                        scanf("%d",& Nb_User1 );
+
+                        while (Nb_User1 < 1 || Nb_User1 > 3){
+                            printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                            scanf("%d",&Nb_User1);
+                        }
+                        NbAllumette = (NbAllumette - Nb_User1);
+                        AffichageAllumette(NbAllumette);
+                        // Si le joueur pioche la dernière allumette : il perds
+                        if(NbAllumette <= 0){
+                            printf("Felicitation, %s remporte la partie\n",pseudoj1);
+                        }
+                        else{
+                            // au tour du j2 de jouer 
+                            printf("\nC'est a %s de jouer !  \nVous devez choisir un nombre d'allumettes entre 1 et 3.\n",pseudoj1);
+                            scanf("%d",& Nb_User1 );
+                            while (Nb_User1 < 1 || Nb_User1 > 3){
+                                printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                scanf("%d",&Nb_User1);
+                            }
+                            NbAllumette = (NbAllumette - Nb_User1);
+                            AffichageAllumette(NbAllumette);
+                            // Si le joueur pioche la dernière allumette : il perds
+                            if (NbAllumette <= 0){
+                                printf("Felicitation, %s remporte la partie\n",pseudoj2);
+                            }
+                        }
+                        compteur = compteur + 1;
+                    }
+
+                }
     }
 }
