@@ -45,3 +45,9 @@ void Welcome(){
     printf("Bonjour et bienvenue dans le jeu des allumettes.\nLe jeu est constitue de 30 allumettes, chaque tour vous pouvez en choisir 1, 2 ou 3.\nL'objectif est que votre adversaire tire la derniere allumettes, a ce moment la\ncelui qui tire la derniere allumette clos la partie et donc perd. \n");
 }
 
+void viderBuffer()
+{
+  int c;
+  while((c=getchar()) != EOF && c != '\n');
+ 
+}
