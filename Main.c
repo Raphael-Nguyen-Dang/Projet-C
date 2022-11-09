@@ -22,7 +22,7 @@ void main(){
 
     while (etat != 1){
         
-        printf("\nIl existe 2 modes de jeu : \n [1] - Mode Contre l'ordinateur \n [2] - Mode Multijoueur \nTapez le numero du mode auquel vous voulez jouer : \n");
+        printf("\nIl existe 2 modes de jeu : \n[1] - Mode Contre l'ordinateur \n[2] - Mode Multijoueur \n\nTapez le numero du mode auquel vous voulez jouer : \n");
         scanf("%d",&ModeDeJeu);
         NbAllumette = 30;
         // Choix du mode jeu Contre l'ordinateur
@@ -42,7 +42,7 @@ void main(){
                             scanf("%d",& Nb_User1 );
 
                             while (Nb_User1 < 1 || Nb_User1 > 3){
-                                printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                printf("Attention a la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
                                 scanf("%d",&Nb_User1);
                             }
                             NbAllumette = (NbAllumette - Nb_User1);
@@ -131,7 +131,7 @@ void main(){
                                 scanf("%d",& Nb_User1 );
 
                                 while (Nb_User1 < 1 || Nb_User1 > 3){
-                                    printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                    printf("Attention a la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
                                     scanf("%d",&Nb_User1);
                                 }
                                 NbAllumette = (NbAllumette - Nb_User1);
@@ -162,7 +162,7 @@ void main(){
 
                             while (Nb_User1 < 1 || Nb_User1 > 3){
                                 viderBuffer();
-                                printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\nTapez a nouveau votre choix: ");
+                                printf("Attention a la triche ! Vous devez tirer entre 1 et 3 allumettes!\nTapez a nouveau votre choix: ");
                                 scanf("%d",&Nb_User1);
                             }
                             NbAllumette = (NbAllumette - Nb_User1);
@@ -213,7 +213,7 @@ void main(){
 
                                 while (Nb_User1 < 1 || Nb_User1 > 3){
                                     viderBuffer();
-                                    printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\nTapez a nouveau votre choix: ");
+                                    printf("Attention a la triche ! Vous devez tirer entre 1 et 3 allumettes!\nTapez a nouveau votre choix: ");
                                     scanf("%d",&Nb_User1);
                                 }
                                 NbAllumette = (NbAllumette - Nb_User1);
@@ -250,7 +250,7 @@ void main(){
 
                             while (Nb_User1 < 1 || Nb_User1 > 3){
                                 viderBuffer();
-                                printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                printf("Attention a la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
                                 scanf("%d",&Nb_User1);
                             }
                             NbAllumette = (NbAllumette - Nb_User1);
@@ -265,7 +265,7 @@ void main(){
                                 scanf("%d",& Nb_User1 );
                                 while (Nb_User1 < 1 || Nb_User1 > 3){
                                     viderBuffer();
-                                    printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                    printf("Attention a la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
                                     scanf("%d",&Nb_User1);
                                 }
                                 NbAllumette = (NbAllumette - Nb_User1);
@@ -290,7 +290,7 @@ void main(){
 
                             while (Nb_User1 < 1 || Nb_User1 > 3){
                                 viderBuffer();
-                                printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                printf("Attention a la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
                                 scanf("%d",&Nb_User1);
                             }
                             NbAllumette = (NbAllumette - Nb_User1);
@@ -305,7 +305,7 @@ void main(){
                                 scanf("%d",& Nb_User1 );
                                 while (Nb_User1 < 1 || Nb_User1 > 3){
                                     viderBuffer();
-                                    printf("Attention à la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
+                                    printf("Attention a la triche ! Vous devez tirer entre 1 et 3 allumettes!\n");
                                     scanf("%d",&Nb_User1);
                                 }
                                 NbAllumette = (NbAllumette - Nb_User1);
