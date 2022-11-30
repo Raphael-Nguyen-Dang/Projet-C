@@ -27,7 +27,7 @@ void main(){
         NbAllumette = 30;
         // Choix du mode jeu Contre l'ordinateur
         if(ModeDeJeu == 1){
-            printf("\nIl existe 2 niveau de difficulte : \n [1] - Mode Facile \n [2] - Mode Hardcore \nTapez le numero du mode auquel vous voulez jouer : \n");
+            printf("\nIl existe 2 niveau de difficulte : \n[1] - Mode Facile \n[2] - Mode Hardcore \nTapez le numero du mode auquel vous voulez jouer : \n");
             scanf("%d",&lvlDifficulte);
             // Lancement d'une partie en mode Hardcore
             if(lvlDifficulte == 2){         
